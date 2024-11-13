@@ -1,0 +1,65 @@
+#include<stdio.h>
+void push();
+void pop();
+void display();
+int a[10],item,maxsize,top=-1,opt,i;
+void main(){
+    
+    printf("enter the size of stack");
+    scanf("%d",&maxsize);
+    do{
+    printf("\n*............STACK OPERATION>>>>>> \n");
+    printf("\n1:PUSH\n");
+    printf("\n2:POP \n");
+    printf("\n3:DISPLAY \n");
+    scanf("EXIT");
+    scanf("%d",&opt);
+    switch (opt)
+    {
+    case 1:
+    push();
+        break;
+    case 2:
+    pop();
+    break;
+    case 3:
+    display();
+    break;
+    case 4:
+    break;
+    default:
+    printf("enter a valid choice");
+        break;
+    }}while(opt!=4);
+}
+void push(){
+    if(top==maxsize-1){
+        printf("stack overflow");}
+        else{
+            printf("enter the element to added");
+            scanf("%d",&item);
+            top++;
+            a[top]=item;
+        }
+
+}
+void pop(){
+    if(top==-1){
+        printf("stack underflow");
+    }
+    else{
+        item=a[top];
+        top--;
+        printf("the deleted item is %d",item);
+    }
+}
+void display(){
+    if(top==-1){
+        printf("Stack is empty");
+    }else{
+        printf(" \n the stack is \n");
+        for(i=top;i>=0;i--){
+            printf("%d\n",a[i]);
+        }
+    }
+}
