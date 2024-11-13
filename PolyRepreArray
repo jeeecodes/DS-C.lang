@@ -1,0 +1,22 @@
+#include<stdio.h>
+struct polynomial
+{
+    int coeff;
+    int expo;
+}poly[20];
+void main(){
+    int n,i;
+    printf("enter the number of terms");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+    printf("\n enter the coeffiecient and exponent of the %d th term \n",i+1);
+    scanf("%d%d",&poly[i].coeff,&poly[i].expo);
+}
+printf("\n the polynomial is \n");
+for(i=0;i<n;i++){
+    printf("(%dX^%d)",poly[i].coeff,poly[i].expo);
+    if(i<n-1){
+      printf("+");
+    }
+}}
+
