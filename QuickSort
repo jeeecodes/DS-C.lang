@@ -1,0 +1,52 @@
+#include<stdio.h>
+void swap(int A[],int l,int h){
+    int temp=A[l];
+    A[l]=A[h];
+    A[h]=temp;
+
+}
+int partition(int A[],int l,int h){
+    int pivot=A[l];
+    int i=l+1;
+    int j=h;
+    while(i<=j){
+    while(i<=h && A[i]<=pivot) i++;
+        while(j>l && A[j]>pivot)j--;
+        if(i<j){
+            swap(A,i,j);
+        }
+    }
+    swap(A,l,j);
+    return j;
+    
+
+}
+void quicksort(int A[],int l,int h){
+    if(l<h){
+      int  j=partition(A,l,h);
+      quicksort(A,l,j-1);
+      quicksort(A,j+1,h);
+    }
+}
+void display(int A[],int n){
+    for(int i=0;i<n;i++){
+        printf("%d \t",A[i]);
+    }
+     printf("\n");
+}
+void main(){
+    int n;
+    printf("enter the size of array");
+    scanf("%d",&n);
+    int A[n];
+    printf("Enter the elemnts");
+    for(int i=0;i<n;i++){
+        scanf("%d",&A[i]);
+    }
+    printf("\n Entered Array is \n");
+    display(A,n);
+
+    quicksort(A,0,n-1);
+    printf("\n Sorted array is \n");
+    display(A,n);
+}
